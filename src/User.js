@@ -48,7 +48,6 @@ const User = () => {
         }
       );
       setLoading(false);
-      console.log(data.parcel.parcel);
       setParcels(data.parcel.parcel);
     } catch (error) {
       setLoading(false);

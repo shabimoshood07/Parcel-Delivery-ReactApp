@@ -18,7 +18,6 @@ function UserParcel({
   const token = JSON.parse(localStorage.getItem("token"));
 
   const editParcel = (id) => {
-    console.log(id);
     setShow(true);
   };
 
@@ -51,7 +50,7 @@ function UserParcel({
             >
               {showInfo ? <FaChevronUp /> : <FaChevronDown />}
             </button>
-            <p>Parcel iD: {_id}</p>
+            <p>iD: {_id}</p>
           </div>
           <div className="icon">
             <button
