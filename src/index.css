@@ -207,6 +207,7 @@ PARCEL PAGE
   justify-content: space-between;
 }
 .title-heading {
+  /* border: solid; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -215,12 +216,17 @@ PARCEL PAGE
   color: #181528;
   font-weight: bold;
 }
-
+/* .icon {
+  border: solid;
+} */
 .icon-btn {
   cursor: pointer;
   background: transparent;
   border: transparent;
   font-size: 1.1rem;
+}
+.toggle-btn {
+  font-size: 0.9rem;
 }
 .delete-btn {
   color: red;

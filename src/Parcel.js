@@ -58,7 +58,7 @@ ADMIN DELETE PARCEL
             >
               {showInfo ? <FaChevronUp /> : <FaChevronDown />}
             </button>
-            <p>Parcel iD:{_id}</p>
+            <p>Id:{_id}</p>
           </div>
           <div className="icon">
             {delivered ? (
