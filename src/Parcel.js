@@ -15,6 +15,10 @@ function Parcel({
   presentLocation,
   status,
   createdBy,
+  receiver,
+  receiverNumber,
+  pickupLocation,
+  price,
   setLoading,
   getParcel,
   delivered,
@@ -23,9 +27,6 @@ function Parcel({
   const [showInfo, setShowInfo] = useState(false);
   const [show, setShow] = useState(false);
 
-  // if (status === "delivered") {
-  // }
-  console.log(status);
   /*/ ////////// //
 ADMIN DELETE PARCEL
 /////////////*/
@@ -58,7 +59,7 @@ ADMIN DELETE PARCEL
             >
               {showInfo ? <FaChevronUp /> : <FaChevronDown />}
             </button>
-            <p>Id:{_id}</p>
+            <p>OrderId:{_id}</p>
           </div>
           <div className="icon">
             {delivered ? (
@@ -81,16 +82,29 @@ ADMIN DELETE PARCEL
         {showInfo && (
           <div className="parcel-details">
             <h4>
+              UserId: <span>{createdBy}</span>
+            </h4>
+            <h4>
+              Price<strong>(N)</strong>: <span>{price}</span>
+            </h4>
+            <h4>
+              Pickup Location: <span>{pickupLocation}</span>
+            </h4>
+            <h4>
               Destination: <span>{destination}</span>
+            </h4>
+
+            <h4>
+              Recipient: <span>{receiver}</span>
+            </h4>
+            <h4>
+              Recipient Number: <span>{receiverNumber}</span>
             </h4>
             <h4>
               Present location: <span>{presentLocation}</span>
             </h4>
             <h4>
               Status: <span>{status}</span>
-            </h4>
-            <h4>
-              Created By: <span>{createdBy}</span>
             </h4>
           </div>
         )}

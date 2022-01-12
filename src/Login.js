@@ -6,6 +6,8 @@ function Login() {
   const [register, setRegister] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [address, setAddress] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -32,7 +34,7 @@ function Login() {
   const signup = async (e) => {
     e.preventDefault();
     setLoading(true);
-
+    // console.log(typeof phoneNumber);
     if (password !== confirmPassword) {
       setLoading(false);
       setErrorMsg("Password does not match!");
@@ -44,6 +46,8 @@ function Login() {
             name: name,
             email: email,
             password: password,
+            address: address,
+            phoneNumber: phoneNumber,
           }
         );
         setErrorMsg("User Created Successfully");
@@ -82,6 +86,13 @@ function Login() {
           "Duplicate value entered for email field, please choose another value"
         ) {
           setErrorMsg("User already exist");
+        } else if (error.response.data.msg === "Invalid country calling code") {
+          setErrorMsg("invalid phone number");
+        } else if (
+          error.response.data.msg ===
+          "The string supplied did not seem to be a phone number"
+        ) {
+          setErrorMsg("please complete all fields ");
         } else {
           setErrorMsg(error.response.data.msg);
         }
@@ -149,6 +160,26 @@ function Login() {
               setEmail(e.target.value);
             }}
           />
+
+          <label htmlFor="phoneNumber"> Phone Number</label>
+          <input
+            type="tel"
+            placeholder="phone No...."
+            value={phoneNumber}
+            onChange={(e) => {
+              setPhoneNumber(e.target.value);
+            }}
+          />
+          <label htmlFor="address"> Address</label>
+          <input
+            type="text"
+            placeholder="address...."
+            value={address}
+            onChange={(e) => {
+              setAddress(e.target.value);
+            }}
+          />
+
           <label htmlFor="email">Password</label>
           <input
             type="password"

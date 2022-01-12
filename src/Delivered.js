@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { FaTrash, FaEdit, FaChevronDown, FaChevronUp } from "react-icons/fa";
-import Modal from "./Modal";
+
 import axios from "axios";
 
-function UserParcel({
+function Delivered({
   _id,
   destination,
   presentLocation,
@@ -22,14 +22,8 @@ function UserParcel({
   setWeight,
   // deleteParcel,
 }) {
-  const [show, setShow] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
   const token = JSON.parse(localStorage.getItem("token"));
-
-  const editParcel = (id) => {
-    setShow(true);
-  };
-
   const deleteParcel = async (id) => {
     try {
       const path = await axios.delete(
@@ -52,7 +46,6 @@ function UserParcel({
       console.log(error.response);
     }
   };
-
   return (
     <>
       <div className="parcel-container">
@@ -72,12 +65,6 @@ function UserParcel({
               onClick={() => deleteParcel(_id)}
             >
               <FaTrash />
-            </button>
-            <button
-              className="icon-btn edit-btn"
-              onClick={() => editParcel(_id)}
-            >
-              <FaEdit />
             </button>
           </div>
         </div>
@@ -107,16 +94,8 @@ function UserParcel({
           </div>
         )}
       </div>
-
-      <Modal
-        setShow={setShow}
-        show={show}
-        id={_id}
-        getUserParcel={getUserParcel}
-        setLoading={setLoading}
-        status
-      />
     </>
   );
 }
-export default UserParcel;
+
+export default Delivered;

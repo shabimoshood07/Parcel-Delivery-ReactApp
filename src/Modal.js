@@ -8,6 +8,7 @@ const Modal = ({
   id,
   getUserParcel,
   setLoading,
+  status,
 }) => {
   const token = JSON.parse(localStorage.getItem("token"));
 

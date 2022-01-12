@@ -387,11 +387,25 @@ USER PARCEL PAGE
   margin-bottom: 1.5rem;
   width: 80%;
 }
+
+.input-fields {
+  align-items: center;
+  display: flex;
+  width: 95%;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
 .create-parcel-form label {
   text-align: left;
+  flex: 40%;
+}
+.create-parcel-form output {
+  text-align: left;
+  border: solid 1px;
+  /* width: 95%; */
+  width: 45%;
 }
 .create-parcel-form input {
-  /* border: transparent; */
   border-top-style: hidden;
   border-right-style: hidden;
   border-left-style: hidden;
