@@ -82,9 +82,7 @@ function Delivered({
             <h4>
               Recipient Number: <span>{receiverNumber}</span>
             </h4>
-            <h4>
-              Present location: <span>{presentLocation}</span>
-            </h4>
+
             <h4>
               Status: <span>{status}</span>
             </h4>
