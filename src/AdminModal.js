@@ -12,9 +12,11 @@ function AdminModal({
   const token = JSON.parse(localStorage.getItem("token"));
 
   const [presentLocation, setPresentLocation] = useState("");
-  const [status, setStatus] = useState(
-    JSON.stringify(statusParcel).slice(1, -1)
-  );
+  // const [status, setStatus] = useState(
+  //   JSON.stringify(statusParcel).slice(1, -1)
+  // );
+
+  const [status, setStatus] = useState("");
   const [msg, setMsg] = useState("");
 
   useEffect(() => {
@@ -88,7 +90,7 @@ UPDATE PARCEL
               onChange={(e) => {
                 setStatus(e.target.value);
               }}
-              value={status}
+              // { status? value={status}: value = null}
             >
               <option value={status}>{status}</option>
               <option value="pickup station">pickup station</option>
