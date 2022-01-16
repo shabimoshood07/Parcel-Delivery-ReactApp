@@ -21,6 +21,7 @@ const User = () => {
   const userName = JSON.parse(localStorage.getItem("user"));
 
   let navigate = useNavigate();
+
   useEffect(() => {
     setAmount(Math.round(weight * 15));
   }, [weight]);
