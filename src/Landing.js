@@ -1,8 +1,18 @@
-import React from "react";
-import { Link } from "react-router-dom";
-function Landing() {
-  localStorage.clear();
+import React, { useEffect } from "react";
+import { Link, Navigate } from "react-router-dom";
 
+function Landing() {
+  if (JSON.parse(localStorage.getItem("token"))) {
+    if (JSON.parse(localStorage.getItem("user")).role === "admin") {
+      return <Navigate to="/admin" />;
+    } else {
+      return (
+        <Navigate
+          to={`/user/${JSON.parse(localStorage.getItem("user")).email}`}
+        />
+      );
+    }
+  }
   return (
     <div className="landing">
       <div className="landing-content">

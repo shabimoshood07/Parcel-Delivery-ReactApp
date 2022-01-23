@@ -81,6 +81,7 @@ function Login() {
         setConfirmPassword("");
         setLoading(false);
       } catch (error) {
+        console.log(error.response.data.msg);
         if (
           error.response.data.msg ===
           "Duplicate value entered for email field, please choose another value"
@@ -93,6 +94,11 @@ function Login() {
           "The string supplied did not seem to be a phone number"
         ) {
           setErrorMsg("please complete all fields ");
+        } else if (
+          error.response.data.msg ===
+          "Path `password` (`12`) is shorter than the minimum allowed length (6)."
+        ) {
+          setErrorMsg("password must be at least 6 characters");
         } else {
           setErrorMsg(error.response.data.msg);
         }
@@ -130,8 +136,8 @@ function Login() {
       console.log(error.response.data.msg);
       setLoading(false);
     }
-    setEmail("");
-    setPassword("");
+    // setEmail("");
+    // setPassword("");
   };
 
   if (register) {
