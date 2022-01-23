@@ -38,6 +38,9 @@ function Login() {
     if (password !== confirmPassword) {
       setLoading(false);
       setErrorMsg("Password does not match!");
+    } else if (password.length < 6) {
+      setErrorMsg("password must be at least 6 characters");
+      setLoading(false);
     } else {
       try {
         const user = await axios.post(
@@ -94,11 +97,6 @@ function Login() {
           "The string supplied did not seem to be a phone number"
         ) {
           setErrorMsg("please complete all fields ");
-        } else if (
-          error.response.data.msg ===
-          "Path `password` (`12`) is shorter than the minimum allowed length (6)."
-        ) {
-          setErrorMsg("password must be at least 6 characters");
         } else {
           setErrorMsg(error.response.data.msg);
         }
