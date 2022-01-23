@@ -35,7 +35,10 @@ function Login() {
     e.preventDefault();
     setLoading(true);
     // console.log(typeof phoneNumber);
-    if (password !== confirmPassword) {
+    if (!password || !email || !name) {
+      setLoading(false);
+      setErrorMsg("Please complete all input fields");
+    } else if (password !== confirmPassword) {
       setLoading(false);
       setErrorMsg("Password does not match!");
     } else if (password.length < 6) {
@@ -90,7 +93,11 @@ function Login() {
           "Duplicate value entered for email field, please choose another value"
         ) {
           setErrorMsg("User already exist");
-        } else if (error.response.data.msg === "Invalid country calling code") {
+        } else if (
+          error.response.data.msg === "Invalid country calling code" ||
+          error.response.data.msg ===
+            "Phone number is not valid. Number is an unknown local number."
+        ) {
           setErrorMsg("invalid phone number");
         } else if (
           error.response.data.msg ===
